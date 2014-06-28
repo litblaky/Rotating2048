@@ -1,5 +1,4 @@
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
 #include "NumberPiece.h"
 #include "Board.h"
 #include "Game.h"

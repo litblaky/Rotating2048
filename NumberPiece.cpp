@@ -25,7 +25,8 @@ NumberPiece *NumberPiece::create(int row, int col)
 	NumberPiece *number_piece = new NumberPiece();
 
 	ostringstream file;
-	file << "piece" << number_piece->number << ".png";
+	file << "circle" << number_piece->number << ".png";
+
 	Texture2D *image = TextureCache::getInstance()->addImage(file.str());
 
 	if (number_piece->initWithTexture(image)) {
@@ -35,8 +36,8 @@ NumberPiece *NumberPiece::create(int row, int col)
 
 		ostringstream os;
 		os << number_piece->number;
-		LabelTTF *label = LabelTTF::create(os.str(), "Arial", 40);
-		label->setPosition(Vec2(50, 50));
+		LabelTTF *label = LabelTTF::create(os.str(), "Arial", 30);
+		label->setPosition(Vec2(25, 25));
 		number_piece->addChild(label, 0, 0);
 
 		Game::pieces_layer->addChild(number_piece);
@@ -56,7 +57,8 @@ void NumberPiece::doubleNumber()
 	Game::updateGrade();
 
 	ostringstream file;
-	file << "piece" << number << ".png";
+	file << "circle" << number << ".png";
+
 	Texture2D *image = TextureCache::getInstance()->addImage(file.str());
 
 	setTexture(image);
@@ -75,8 +77,9 @@ void NumberPiece::doubleNumber()
 
 void NumberPiece::updatePosition(int row, int col, int act)
 {
-	x = 250 + col * NUMBER_PIECE_SIZE;
-	y = 150 + (BOARD_SIZE - 1 - row) * NUMBER_PIECE_SIZE;
+	angle = col * ANGLE_UNIT;
+	x = 400 + (LAYER_LENGTH * (1 + row) + 50)* cos(angle);
+	y = 300 + (LAYER_LENGTH * (1 + row) + 50) * sin(angle);
 
 	if (act == 0) {
 		MoveTo *act = MoveTo::create(0.05, Vec2(x, y));

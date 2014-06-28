@@ -17,6 +17,8 @@ public:
 	static Layer *pieces_layer;
 	static LabelTTF *grade_label;
 
+	static Sprite *layers_sprite[3];
+
 	static int state; // 0 for play, 1 for lose
 	static int grade;
 

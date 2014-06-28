@@ -20,6 +20,7 @@ void Grid::setPos(int r, int c)
 
 void Grid::setNumberPiece(NumberPiece *np, bool remove_old)
 {
+
 	if (number_piece != NULL && remove_old) {
 		Game::pieces_layer->removeChild(number_piece);
 	}

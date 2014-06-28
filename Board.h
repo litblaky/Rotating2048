@@ -4,7 +4,11 @@
 #include "Grid.h"
 #include <vector>
 
-#define BOARD_SIZE 4
+#define LAYER_NUM 3
+#define LAYER_SIZE 8
+// 45 degrees in radian
+#define ANGLE_UNIT 0.7853981633874483
+#define LAYER_LENGTH 50
 
 class Board
 {
@@ -18,6 +22,7 @@ public:
 	void moveDown();
 	void moveLeft();
 	void moveRight();
+	void changeLayer();
 
 	void clear();
 private:
@@ -26,8 +31,9 @@ private:
 	std::vector<Grid *> getFreeGrids();
 
 
-	Grid grids[BOARD_SIZE][BOARD_SIZE];
+	Grid grids[LAYER_NUM][LAYER_SIZE];
 	static Board *instance;
+	int layer;
 };
 
 

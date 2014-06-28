@@ -20,7 +20,7 @@ public:
 	int getNumber();
 private:
 	int number;
-	float x, y;
+	float x, y, angle;
 };
 
 #endif
