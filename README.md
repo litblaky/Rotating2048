@@ -1,7 +1,7 @@
 Rotating2048
 ============
 
-## 使用用方法
+## 使用方法
 
 - 先用cocos2d-x 3.2 的cocos console工具建一个c++工程。
 - 把.h/.cpp源文件放到Classes文件夹里。
