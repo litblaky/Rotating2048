@@ -16,7 +16,7 @@ bool Game::initGame()
 {
 	game = new Game();
 
-	Size s(800, 800);
+	Size s(800, 600);
 
 	if(game->initWithSize(s)) {
 		game->setUp();
